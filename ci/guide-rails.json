@@ -118,7 +118,7 @@
 							{
 								"name": "Verify_Docker_Cmd",
 								"definition": "Verify_Docker_Cmd",
-								"command": "ls -ltR ${PKG_BASE_DIR}/docker/\n\necho \"Verify docker is running\"\n${PKG_BASE_DIR}/docker/docker",
+								"command": "ls -ltR ${PKG_BASE_DIR}/docker/\n\necho \"Verify docker is running\"\n${PKG_BASE_DIR}/docker/bin/docker ps",
 								"properties": null
 							}
 						],
