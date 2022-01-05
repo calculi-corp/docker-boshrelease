@@ -111,6 +111,20 @@
 						]
 					}
 				],
+				"tasks": [
+					{
+						"name": "Verify",
+						"steps": [
+							{
+								"name": "Verify_Docker_Cmd",
+								"definition": "Verify_Docker_Cmd",
+								"command": "ls -ltR ${PKG_BASE_DIR}/docker/\n\necho \"Verify docker is running\"\n${PKG_BASE_DIR}/docker/docker",
+								"properties": null
+							}
+						],
+						"docker_options": {}
+					}
+				],
 				"deployment_target": 1,
 				"releases": [
 					{
@@ -123,7 +137,6 @@
 			{
 				"name": "Production",
 				"segment_type": "production",
-				"persistent": true,
 				"run_after": [
 					"Integration"
 				],
@@ -207,6 +220,7 @@
 						]
 					}
 				],
+				"gated": true,
 				"deployment_target": 1,
 				"releases": [
 					{
@@ -222,13 +236,7 @@
 		"deployment_files": [],
 		"application_init": {
 			"command": "bin/start-service.sh"
-		},
-		"releases": [
-			{
-				"name": "consul",
-				"version": "latest"
-			}
-		]
+		}
 	},
 	"organization": {
 		"orgname": "GR-Product"
